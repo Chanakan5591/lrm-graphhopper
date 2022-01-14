@@ -108,7 +108,7 @@
 			for (i = 0; i < response.paths.length; i++) {
 				path = response.paths[i];
 				coordinates = this._decodePolyline(path.points);
-				description = path.description.join(', ');
+				description = path.description && path.description.join(', ');
 				if (path.points_order) {
 					var tempWaypoints = [];
 					for (i = 0; i < path.points_order.length; i++) {
@@ -120,7 +120,7 @@
 					this._mapWaypointIndices(inputWaypoints, path.instructions, coordinates);
 
 				alts.push({
-					name: description,
+					name: description ? description : 'Unknown',
 					coordinates: coordinates,
 					instructions: this._convertInstructions(path.instructions),
 					summary: {
