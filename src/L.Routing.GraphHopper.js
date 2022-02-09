@@ -58,10 +58,10 @@
 					var fired = err ? err : resp;
 					this.fire("response", {
 						status: fired.status,
-						limit: Number(fired.getResponseHeader("X-RateLimit-Limit")),
-						remaining: Number(fired.getResponseHeader("X-RateLimit-Remaining")),
-						reset: Number(fired.getResponseHeader("X-RateLimit-Reset")),
-						credits: Number(fired.getResponseHeader("X-RateLimit-Credits"))
+						limit: fired.getResponseHeader && Number(fired.getResponseHeader("X-RateLimit-Limit")),
+						remaining: fired.getResponseHeader && Number(fired.getResponseHeader("X-RateLimit-Remaining")),
+						reset: fired.getResponseHeader && Number(fired.getResponseHeader("X-RateLimit-Reset")),
+						credits: fired.getResponseHeader && Number(fired.getResponseHeader("X-RateLimit-Credits"))
 					});
 					if (!err) {
 						data = JSON.parse(resp.responseText);
