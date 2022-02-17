@@ -57,11 +57,7 @@
 				if (!timedOut) {
 					var fired = err ? err : resp;
 					this.fire("response", {
-						status: fired.status,
-						limit: fired.getResponseHeader && Number(fired.getResponseHeader("X-RateLimit-Limit")),
-						remaining: fired.getResponseHeader && Number(fired.getResponseHeader("X-RateLimit-Remaining")),
-						reset: fired.getResponseHeader && Number(fired.getResponseHeader("X-RateLimit-Reset")),
-						credits: fired.getResponseHeader && Number(fired.getResponseHeader("X-RateLimit-Credits"))
+						status: fired.status
 					});
 					if (!err) {
 						data = JSON.parse(resp.responseText);
