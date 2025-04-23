@@ -1,6 +1,6 @@
 {
   "name": "@carbonyx/lrm-graphhopper",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "Support for GraphHopper in Leaflet Routing Machine",
   "main": "src/L.Routing.GraphHopper.js",
   "scripts": {
